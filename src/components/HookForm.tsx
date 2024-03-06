@@ -33,9 +33,9 @@ interface FormValues {
         <FormLabel htmlFor='name'>First name</FormLabel>
         <Input
           id='name'
-          placeholder='Enter first name'
+          placeholder='Enter First name'
           {...register('name', {
-            required: 'This is required',
+            required: 'First name is required',
             minLength: { value: 4, message: 'Minimum length should be 4' },
           })}
         />
@@ -46,9 +46,9 @@ interface FormValues {
         <FormLabel htmlFor='name'>Last name</FormLabel>
         <Input
           id='name'
-          placeholder='Enter last name'
+          placeholder='Enter Last name'
           {...register('name', {
-            required: 'This is required',
+            required: 'Last name is required',
             minLength: { value: 4, message: 'Minimum length should be 4' },
           })}
         />
