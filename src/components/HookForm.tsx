@@ -5,10 +5,14 @@ import {
   FormControl,
   Input,
   Button,
+  Select
 } from '@chakra-ui/react'
 
 interface FormValues {
-  name: string
+  name: string,
+  email: string,
+  phone: string,
+  dob: string,
 }
 
  function HookForm() {
@@ -29,6 +33,7 @@ interface FormValues {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+      <h1>Basic Details</h1>
       <FormControl isInvalid={errors.name ? true : undefined} mb="4">
         <FormLabel htmlFor='name'>First name</FormLabel>
         <Input
@@ -54,6 +59,17 @@ interface FormValues {
         />
         <FormErrorMessage>{errors.name && errors.name.message}</FormErrorMessage>
       </FormControl>
+
+      <h1>Other Information</h1>
+      <h2>Gender</h2>
+      <Select placeholder='Select Gender'>
+         <option value='male'>Male</option>
+         <option value='female'>Female</option>
+         <option value='other'>Other</option>
+      </Select>
+
+      <h2>Date of Birth</h2>
+      
 
       <Button mt={4} colorScheme='teal' isLoading={isSubmitting} type='submit'>
         Submit
