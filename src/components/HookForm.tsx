@@ -33,7 +33,7 @@ interface FormValues {
         <FormLabel htmlFor='name'>First name</FormLabel>
         <Input
           id='name'
-          placeholder='name'
+          placeholder='Enter first name'
           {...register('name', {
             required: 'This is required',
             minLength: { value: 4, message: 'Minimum length should be 4' },
@@ -41,6 +41,20 @@ interface FormValues {
         />
         <FormErrorMessage>{errors.name && errors.name.message}</FormErrorMessage>
       </FormControl>
+
+      <FormControl isInvalid={errors.name ? true : undefined} mb="4">
+        <FormLabel htmlFor='name'>Last name</FormLabel>
+        <Input
+          id='name'
+          placeholder='Enter last name'
+          {...register('name', {
+            required: 'This is required',
+            minLength: { value: 4, message: 'Minimum length should be 4' },
+          })}
+        />
+        <FormErrorMessage>{errors.name && errors.name.message}</FormErrorMessage>
+      </FormControl>
+
       <Button mt={4} colorScheme='teal' isLoading={isSubmitting} type='submit'>
         Submit
       </Button>
