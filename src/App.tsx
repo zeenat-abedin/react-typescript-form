@@ -1,12 +1,15 @@
-import './App.css';
-import Form from './components/Form';
+import { ChakraProvider, Box } from '@chakra-ui/react'
+
+import HookForm from './components/HookForm'
 
 function App() {
   return (
-    <div className="App">
-      <Form/>
-    </div>
-  );
+    <ChakraProvider>
+      <Box p={4}>
+        <HookForm />
+      </Box>
+    </ChakraProvider>
+  )
 }
 
 export default App;
