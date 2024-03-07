@@ -16,6 +16,7 @@ interface FormValues {
   phone: string,
   dob: string,
   gender: string
+
 }
 
  function HookForm() {
@@ -115,6 +116,9 @@ interface FormValues {
       </FormControl>     
       </Flex>
       
+      <FormControl id='' mb="4" >
+          <h2>Tech Stack</h2>
+      </FormControl>
       <Button mt={4} colorScheme='teal' isLoading={isSubmitting} type='submit'>
         Submit
       </Button>
