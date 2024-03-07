@@ -5,11 +5,13 @@ import {
   FormControl,
   Input,
   Button,
-  Select
+  Select,
+  Flex,
 } from '@chakra-ui/react'
 
 interface FormValues {
-  name: string,
+  firstName: string,
+  lastName: string,
   email: string,
   phone: string,
   dob: string,
@@ -34,37 +36,41 @@ interface FormValues {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+
       <h1>Basic Details</h1>
-      <FormControl isInvalid={errors.name ? true : undefined} mb="4" >
-        <FormLabel htmlFor='name'>First name</FormLabel>
+      <Flex direction="row" alignItems="center" justifyContent="space-between" mt={4}>
+      <FormControl isInvalid={errors.firstName ? true : undefined} mb="4" >
+        <FormLabel htmlFor='firstName'>First name</FormLabel>
         <Input
-          id='name'
+          id='firstName'
           placeholder='Enter First name'
-          {...register('name', {
+          {...register('firstName', {
             required: 'First name is required',
             minLength: { value: 4, message: 'Minimum length should be 4' },
           })}
           bg='#D9D9D9'
         />
-        <FormErrorMessage>{errors.name && errors.name.message}</FormErrorMessage>
+        <FormErrorMessage>{errors.firstName && errors.firstName.message}</FormErrorMessage>
       </FormControl>
 
-      <FormControl isInvalid={errors.name ? true : undefined} mb="4">
-        <FormLabel htmlFor='name'>Last name</FormLabel>
+      <FormControl isInvalid={errors.lastName ? true : undefined} mb="4">
+        <FormLabel htmlFor='lastName'>Last name</FormLabel>
         <Input
-          id='name'
+          id='lastName'
           placeholder='Enter Last name'
-          {...register('name', {
+          {...register('lastName', {
             required: 'Last name is required',
             minLength: { value: 4, message: 'Minimum length should be 4' },
           })}
           bg='#D9D9D9'
         />
-        <FormErrorMessage>{errors.name && errors.name.message}</FormErrorMessage>
+        <FormErrorMessage>{errors.lastName && errors.lastName.message}</FormErrorMessage>
       </FormControl>
+      </Flex>
 
       <h1>Other Information</h1>
 
+    <Flex direction="row" alignItems="center" justifyContent="space-between" mt={4}>
       <FormControl isInvalid={!!errors.gender} mb="4">
       <h2>Gender</h2>
       <Select placeholder='Select Gender' bg='#D9D9D9'>
@@ -75,11 +81,11 @@ interface FormValues {
       </FormControl>
       
 
-      <FormControl id='age' mb="4" >
-      <h2>Date of Birth</h2>
-      </FormControl>
+      <FormControl id='dob' mb="4" >
+        <h2>Date of Birth</h2>
+      </FormControl>     
+      </Flex>
       
-
       <Button mt={4} colorScheme='teal' isLoading={isSubmitting} type='submit'>
         Submit
       </Button>
