@@ -92,7 +92,8 @@ interface FormValues {
               required: 'Phone is required',
               pattern: { value: /^\d{10}$/, message: 'Invalid phone number' }
             })}
-            bg='#D9DD9'/>
+            bg='#D9D9D9'
+          />
         </FormControl>
         </Flex>
         <h1>Other Information</h1>
