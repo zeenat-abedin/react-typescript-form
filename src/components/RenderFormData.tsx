@@ -7,7 +7,6 @@ interface Props {
 }
 
 const RenderFormData = ({ formData }: Props) => {
-  console.log("formData", formData);
 
   const dob = new Date(formData.dob);
   const formattedDob = dob.toLocaleDateString("en-GB", {
