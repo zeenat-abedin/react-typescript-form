@@ -81,8 +81,9 @@ interface FormValues {
       </FormControl>
       
 
-      <FormControl id='dob' mb="4" >
-        <h2>Date of Birth</h2>
+      <FormControl id='dob' mb="4" isInvalid={!!errors.dob}>
+          <h2>Date of Birth</h2>
+          <FormErrorMessage>{errors.dob && errors.dob.message}</FormErrorMessage>
       </FormControl>     
       </Flex>
       
