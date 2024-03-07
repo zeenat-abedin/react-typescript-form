@@ -13,6 +13,7 @@ interface FormValues {
   email: string,
   phone: string,
   dob: string,
+  gender: string
 }
 
  function HookForm() {
@@ -34,7 +35,7 @@ interface FormValues {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <h1>Basic Details</h1>
-      <FormControl isInvalid={errors.name ? true : undefined} mb="4">
+      <FormControl isInvalid={errors.name ? true : undefined} mb="4" >
         <FormLabel htmlFor='name'>First name</FormLabel>
         <Input
           id='name'
@@ -43,6 +44,7 @@ interface FormValues {
             required: 'First name is required',
             minLength: { value: 4, message: 'Minimum length should be 4' },
           })}
+          bg='#D9D9D9'
         />
         <FormErrorMessage>{errors.name && errors.name.message}</FormErrorMessage>
       </FormControl>
@@ -56,19 +58,26 @@ interface FormValues {
             required: 'Last name is required',
             minLength: { value: 4, message: 'Minimum length should be 4' },
           })}
+          bg='#D9D9D9'
         />
         <FormErrorMessage>{errors.name && errors.name.message}</FormErrorMessage>
       </FormControl>
 
       <h1>Other Information</h1>
+
+      <FormControl isInvalid={!!errors.gender} mb="4">
       <h2>Gender</h2>
-      <Select placeholder='Select Gender'>
+      <Select placeholder='Select Gender' bg='#D9D9D9'>
          <option value='male'>Male</option>
          <option value='female'>Female</option>
          <option value='other'>Other</option>
       </Select>
+      </FormControl>
+      
 
+      <FormControl id='age' mb="4" >
       <h2>Date of Birth</h2>
+      </FormControl>
       
 
       <Button mt={4} colorScheme='teal' isLoading={isSubmitting} type='submit'>
