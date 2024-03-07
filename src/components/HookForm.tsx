@@ -68,7 +68,34 @@ interface FormValues {
       </FormControl>
       </Flex>
 
-      <h1>Other Information</h1>
+            <Flex direction="row" alignItems="center" justifyContent="space-between" mt={4}>
+
+       <FormControl isInvalid={errors.email ? true : undefined} mb="4">
+          <FormLabel htmlFor='email'>Email</FormLabel>
+          <Input
+            id='email'
+            placeholder='Enter Email'
+            {...register('email', {
+              required: 'Email is required',
+              pattern: { value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, message: 'Invalid email address' }
+            })}
+            bg='#D9D9D9'
+          />
+          <FormErrorMessage>{errors.email && errors.email.message}</FormErrorMessage>
+      </FormControl>
+      <FormControl isInvalid={errors.phone ? true : undefined} mb="4">
+          <FormLabel htmlFor='phone'>Phone</FormLabel>
+          <Input
+            id='phone'
+            placeholder='Enter Phone'
+            {...register('phone', {
+              required: 'Phone is required',
+              pattern: { value: /^\d{10}$/, message: 'Invalid phone number' }
+            })}
+            bg='#D9DD9'/>
+        </FormControl>
+        </Flex>
+        <h1>Other Information</h1>
 
     <Flex direction="row" alignItems="center" justifyContent="space-between" mt={4}>
       <FormControl isInvalid={!!errors.gender} mb="4">
