@@ -78,7 +78,7 @@ interface FormValues {
             placeholder='Enter Email'
             {...register('email', {
               required: 'Email is required',
-              pattern: { value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, message: 'Invalid email address' }
+              pattern: { value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, message: 'Email format is incorrect' }
             })}
             bg='#D9D9D9'
           />
@@ -90,8 +90,8 @@ interface FormValues {
             id='phone'
             placeholder='Enter Phone'
             {...register('phone', {
-              required: 'Phone is required',
-              pattern: { value: /^\d{10}$/, message: 'Invalid phone number' }
+              required: 'Mobile number is required',
+              pattern: { value: /^\d{10}$/, message: 'Mobile format is incorrect' }
             })}
             bg='#D9D9D9'
           />
