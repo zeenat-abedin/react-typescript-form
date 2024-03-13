@@ -15,6 +15,7 @@ import {
 import { AddIcon, MinusIcon } from "@chakra-ui/icons";
 
 import type { FormValues } from "../types";
+import CustomSelect from "./CustomSelect";
 
 interface Props {
   handleFormData: (data: FormValues | null) => void;
@@ -35,6 +36,13 @@ function HookForm({ handleFormData }: Props) {
     control,
     name: "techStack",
   });
+
+    const options = [
+    { value: "male", label: "Male" },
+    { value: "female", label: "Female" },
+    { value: "other", label: "Other" },
+  ];
+
 
   const toast = useToast();
 
@@ -158,6 +166,7 @@ function HookForm({ handleFormData }: Props) {
             <option value="female">Female</option>
             <option value="other">Other</option>
           </Select>
+          {/* <CustomSelect options={options} /> */}
         </FormControl>
 
         <FormControl id="dob" mb="4" isInvalid={!!errors.dob}>
